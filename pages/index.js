@@ -81,12 +81,12 @@ export default function Home() {
       const response = await res.json();
 
       console.log("RESAI:", response['text'])
+      
+      if (response['text'].length === 0) {
+        response['text'] = "ok:..."
+      }
 
       if (response) {
-        if (response['text'].length === 0) {
-          response['text'] = "ok:..."
-        }
-
         const newDate = new Date()
         setUserMessages(prevState => ({
           ...prevState,
