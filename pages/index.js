@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect, useRef, useState } from 'react';
 import Message from '../components/message/Message';
+import { resolve } from 'styled-jsx/css';
 
 export default function Home() {
 
@@ -104,6 +105,10 @@ export default function Home() {
     }catch(err){
     console.log(err)
   }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function get_hint (list) {
