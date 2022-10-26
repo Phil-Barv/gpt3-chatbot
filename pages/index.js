@@ -54,7 +54,7 @@ export default function Home() {
       setUserMessages(prevState => ({
         ...prevState,
         [date] : {
-                "sender": "user",
+                "sender": "You",
                 "content": text,
                 "date": date,
               }
@@ -87,7 +87,7 @@ export default function Home() {
         setUserMessages(prevState => ({
           ...prevState,
           [newDate] : {
-                  "sender": "chatbot",
+                  "sender": "Adrien",
                   "content": response['text'].split(":")[1],
                   "date": newDate,
                 }
@@ -119,7 +119,6 @@ const handleHint = async () => {
   setVisible(true);
   await sleep(3000);
   setVisible(false);
-  
 }
 
   const renderMessages = userMessages && Object.entries(userMessages).map(([key, value]) => (
