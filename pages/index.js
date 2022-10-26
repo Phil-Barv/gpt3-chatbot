@@ -83,6 +83,10 @@ export default function Home() {
       console.log("RESAI:", response['text'])
 
       if (response) {
+        if (response['text'] === "") {
+          response['text'] = "ok:..."
+        }
+
         const newDate = new Date()
         setUserMessages(prevState => ({
           ...prevState,
