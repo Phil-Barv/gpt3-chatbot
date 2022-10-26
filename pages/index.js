@@ -99,7 +99,7 @@ export default function Home() {
 }
 
   const renderMessages = userMessages && Object.entries(userMessages).map(([key, value]) => (
-    <div ref={messageRef}>
+    <div ref={messageRef} key={key}>
       <Message sender={[value['sender']]} content={value['content']}/>
     </div>
   ))
