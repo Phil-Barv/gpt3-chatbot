@@ -132,7 +132,7 @@ const handleHint = () => {
         <meta name="description" content="Created by Philip Barven for educational purposes." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{margin:"65px 10%", background:"whitesmoke", height:"450px", borderRadius:"9px", overflow:"hidden", position:"relative", border:"1px solid whitesmoke", boxShadow:"3px 3px 15px lightgray"}}>
+      <div className={styles.chatbot_container}>
         <div style={{height:"50px", background:"whitesmoke", top:"0", borderRadius:"5px 5px 0px 0px", padding:"10px", textAlign:"center"}}>
           {!typing ? (
             <h1 style={{margin:"0", fontSize:"1.4em", textShadow:"1px 1px black", color:"darkgray"}}>
@@ -163,7 +163,7 @@ const handleHint = () => {
             <button style={{
               position:"absolute", cursor:"pointer",margin:"0px", 
               padding:"0px",border:"none", background:"transparent", 
-              fontSize:"1.3em",bottom:"35px", right:"22px"
+              fontSize:"1.3em",bottom:"35px", right:"30px"
               }}
               disabled={!text}
               type="submit"

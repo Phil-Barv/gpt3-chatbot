@@ -127,3 +127,26 @@
     filter: invert(1);
   }
 }
+
+.chatbot_container {
+  margin: 65px 15%;
+  background: whitesmoke;
+  height: 450px;
+  border-radius: 9px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid whitesmoke;
+  box-shadow: 3px 3px 15px lightgray;
+}
+
+@media(max-width: 600px) {
+  .chatbot_container {
+    margin: 65px 3%;
+  }
+}
+
+@media(min-width: 1200px) {
+  .chatbot_container {
+    margin: 65px 25%;
+  }
+}
