@@ -83,7 +83,7 @@ export default function Home() {
       console.log("RESAI:", response['text'])
 
       if (response) {
-        if (response['text'] === "") {
+        if (response['text'].length === 0) {
           response['text'] = "ok:..."
         }
 
