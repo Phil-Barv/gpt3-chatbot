@@ -14,6 +14,13 @@ export default function Home() {
   const [aiConvo, updateAIConvo] = useState("");
   const [humanConvo, updateHumanConvo] = useState("");
   const [visible, setVisible] = useState(false);
+  const hints = [
+    "If you get too many blank resnponses, refresh the page to restart the conversation.",
+    "Try speaking in a different language!",
+    "Not fun? Say 'recite for me a sonnet'",
+    "Feeling down? Say 'Tell me a joke'",
+    "Not getting responses? Try saying hello again"
+  ];
 
   function defaultConversation() {
     return `\nThe following is a conversation with an AI assistant named Adrian. The assistant is helpful, creative, clever, and very friendly.\nHuman: Who are you?\nAI: I am an AI created by OpenAI. How can I help you today?`
@@ -99,8 +106,15 @@ export default function Home() {
   }
 }
 
-const handleHint = () => {
+function get_hint (list) {
+  return list[Math.floor((Math.random()*list.length))];
+}
+
+const handleHint = async () => {
   setVisible(true);
+  await sleep(3000);
+  setVisible(false);
+  
 }
 
   const renderMessages = userMessages && Object.entries(userMessages).map(([key, value]) => (
@@ -181,13 +195,14 @@ const handleHint = () => {
       {/* {JSON.stringify(conversation)} */}
       <center>
         {visible ? (
-          <p>If you get too many blank resnponses, refresh the page to restart the conversation.</p>
+          <p>{get_hint(hints)}</p>
         ) : (
           <button 
             type="button" 
             onClick={handleHint}
-            style={{cursor:"pointer", margin:"15px", background:"whitesmoke", border:"none", background:"lightgray", width:"50px", height:"30px",  borderRadius:"3px", fontSize:"large"}}
-            >Hint
+            style={{cursor:"pointer", padding:"10px", margin:"15px", background:"whitesmoke", border:"none", background:"lightgray", width:"50px", height:"30px",  borderRadius:"3px", fontSize:"large"}}
+            >
+              Hint
           </button>
         )}
       </center>
