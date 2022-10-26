@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
-const Message = ({sender, content}) => {
+const Message = ({sender, content, time}) => {
 
     const [m_sender, setSender]= useState("");
     const [m_content, setContent] = useState("");
+    const [m_time, setTime] = useState("");
 
     useEffect(() => {
         setSender(sender)
@@ -12,6 +13,16 @@ const Message = ({sender, content}) => {
     useEffect(() => {
         setContent(content)
     }, [content])
+
+    
+    useEffect(() => {
+        setTime(time)
+    }, [time])
+
+    function formatTime(time) {
+        const newTime = new Date(time).toLocaleTimeString()
+        return `${newTime.split(":")[0]}:${newTime.split(":")[1]} ${newTime.split(":")[2].split(" ")[1]}`;
+    }
 
     return (
         <>
@@ -22,7 +33,7 @@ const Message = ({sender, content}) => {
                             <p style={{margin:"0", padding:"0", fontSize:"0.9em"}}>{m_content}</p>
                         </div>
                         <div style={{background:"transparent", width:"100%", textAlign:"right"}}>
-                            <p style={{margin:"0", padding:"0", fontSize:"0.9em"}}>{m_sender}</p>
+                            <p style={{margin:"0", padding:"0", paddingTop:"3px", fontSize:"0.8em"}}>{formatTime(m_time)}</p>
                         </div>
                     </div>
                 </div>
@@ -34,7 +45,7 @@ const Message = ({sender, content}) => {
                             <p style={{margin:"0", padding:"0", fontSize:"0.9em"}}>{m_content}</p>
                         </div>
                         <div style={{background:"transparent", width:"100%", textAlign:"right"}}>
-                            <p style={{margin:"0", padding:"0", fontSize:"0.9em"}}>{m_sender}</p>
+                            <p style={{margin:"0", padding:"0", paddingTop:"3px", fontSize:"0.8em"}}>{formatTime(m_time)}</p>
                         </div>
                     </div>
                 </div>

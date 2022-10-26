@@ -3,7 +3,6 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect, useRef, useState } from 'react';
 import Message from '../components/message/Message';
-import { resolve } from 'styled-jsx/css';
 
 export default function Home() {
 
@@ -20,7 +19,8 @@ export default function Home() {
     "Try speaking in a different language!",
     "Not fun? Say 'recite for me a sonnet'",
     "Feeling down? Say 'Tell me a joke'",
-    "Not getting responses? Try saying hello again"
+    "Not getting responses? Try saying hello again",
+    "Reloading restarts the conversation",
   ];
 
   function defaultConversation() {
@@ -81,10 +81,6 @@ export default function Home() {
       const response = await res.json();
 
       console.log("RESAI:", response['text'])
-      
-      if (response['text'].length === 0) {
-        response['text'] = "ok:..."
-      }
 
       if (response) {
         const newDate = new Date()
@@ -125,9 +121,17 @@ const handleHint = async () => {
   setVisible(false);
 }
 
+function check_text(text) {
+  if (text?.replace(/\s/g,"") == "" || text?.length == 0 || text == undefined || text == null) {
+    return "..."
+  } else{
+    return text
+  }
+}
+
   const renderMessages = userMessages && Object.entries(userMessages).map(([key, value]) => (
     <div ref={messageRef} key={key}>
-      <Message sender={[value['sender']]} content={value['content']}/>
+      <Message sender={[value['sender']]} content={check_text(value['content'])} time={key}/>
     </div>
   ))
 
