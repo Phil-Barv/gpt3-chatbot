@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const apiCall = async (req, res) => {
+export default async function handler(req, res) {
 
   const {name} = req.body;
 
@@ -21,8 +21,6 @@ const apiCall = async (req, res) => {
     stop: [" Human:", " AI:"],
   });
 
-  console.log("UBIN", req.name, name)
+  // console.log("UBIN", req.name, name)
 
   res.status(200).json({text: `${gptResponse.data.choices[0].text}`})}
-
-export default apiCall;
