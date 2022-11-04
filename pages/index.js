@@ -184,7 +184,7 @@ function check_text(text) {
         <div style={{display:"flex", justifyContent:"center", bottom:"0", width:"100%", position:"absolute", alignItems:"center", marginLeft:"15px"}}>
           <form onSubmit={handleSubmit} style={{display:"inline-block",position:"relative", margin:"0", padding:"0px", width:"90%", justifyContent:"center", alignItems:"center"}}>
             <textarea 
-              style={{display:"block",height:"fit-content", width:"96%", height:"fit-content", maxHeight:"150px",overflowX:"unset", padding:"10px 30px", margin:"20px 10px ", resize:"none", border:"none", borderRadius:"9px", boxShadow:"1px 1px 3px lightgray"}} 
+              style={{display:"block",height:"fit-content", width:"96%", height:"fit-content", maxHeight:"150px",overflowX:"unset", padding:"10px 30px", margin:"20px 10px ", resize:"none", border:"none", borderRadius:"9px", boxShadow:"1px 1px 3px lightgray", backgroundColor:"white"}} 
               placeholder="Type a message"
               onChange={(e)=>{setText(e.target.value)}}
               value={text}
