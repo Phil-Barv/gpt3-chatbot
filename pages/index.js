@@ -53,7 +53,7 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      toast.info("Info")
+      // toast.info("Info")
       const date = new Date()
       setUserMessages(prevState => ({
         ...prevState,
@@ -68,7 +68,7 @@ export default function Home() {
       const temp = getPrompt(text);
       updateHumanConvo(temp)
   
-      console.log("AFTER", temp, humanConvo);
+      // console.log("AFTER", temp, humanConvo);
       setText("");
       setTyping(true);
 
@@ -84,7 +84,7 @@ export default function Home() {
 
       const response = await res.json();
 
-      console.log("RESAI:", response['text'])
+      // console.log("RESAI:", response['text'])
 
       if (response) {
         const newDate = new Date()
@@ -103,7 +103,7 @@ export default function Home() {
         const temp2 = updatePrompt(response['text'].split(":")[1]);
         updateAIConvo(temp2);
 
-        console.log("NEW", temp2, conversation)
+        // console.log("NEW", temp2, conversation)
       }
 
     }catch(err){
