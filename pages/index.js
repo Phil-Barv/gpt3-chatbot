@@ -2,7 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect, useRef, useState } from 'react';
-import Message from '../components/message/Message';
+import Message from '../components/Message';
+import Survey from '../components/Survey';
+import { Button } from 'antd';
+import {toast} from 'react-toastify';
 
 export default function Home() {
 
@@ -24,7 +27,7 @@ export default function Home() {
   ];
 
   function defaultConversation() {
-    return `\nThe following is a conversation with an AI assistant named Adrian. The assistant is helpful, creative, clever, and very friendly.\nHuman: Who are you?\nAI: I am an AI created by OpenAI. How can I help you today?`
+    return `\nThe following is a conversation with an AI assistant named Adrien. The assistant is helpful, creative, clever, and very friendly.\nHuman: Who are you?\nAI: I am an AI created by OpenAI. How can I help you today?`
   }
 
   function getPrompt(question) {
@@ -50,6 +53,7 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      toast.info("Info")
       const date = new Date()
       setUserMessages(prevState => ({
         ...prevState,
@@ -209,13 +213,15 @@ function check_text(text) {
         {visible ? (
           <p>{get_hint(hints)}</p>
         ) : (
-          <button 
-            type="button" 
-            onClick={handleHint}
-            style={{cursor:"pointer", padding:"10px", margin:"15px", background:"whitesmoke", border:"none", background:"lightgray", width:"50px", height:"30px",  borderRadius:"3px", fontSize:"large"}}
-            >
-              Hint
-          </button>
+          <div style={{display:"flex", justifyContent:"center", flexDirection:"column", width:"100px", padding:"5px"}}>
+            <Survey/>
+            <Button
+              type="primary" 
+              onClick={handleHint}
+              style={{whiteSpace: "normal", height:'auto', margin:'15px', textAlign:"center", padding:"5px"}}
+              >Hint
+            </Button>
+          </div>
         )}
       </center>
       <footer className={styles.footer}>
