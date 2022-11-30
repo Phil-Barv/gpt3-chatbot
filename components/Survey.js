@@ -162,7 +162,7 @@ const Survey = () => {
                     {currentView == "1" && (
                         <>
                             <div style={{display:"flex", justifyContent:"center"}}>
-                                <p>How was your experience chatting with Adrien?</p>
+                                <p>How was your experience using the demo app?</p>
                             </div>
             
                             <div style={{display:"flex", justifyContent:"space-between", margin:"30px 15px", width:"90%"}}>
@@ -199,7 +199,7 @@ const Survey = () => {
                     {currentView == "2" && (
                         <>
                             <div style={{display:"flex", justifyContent:"center"}}>
-                                <p>How likely are you to talk to Adrien in your daily life?</p>
+                                <p>How attractive did you find the demo app?</p>
                             </div>
             
                             <div style={{display:"flex", justifyContent:"space-between", margin:"30px 15px", width:"90%"}}>
@@ -273,7 +273,7 @@ const Survey = () => {
                     {currentView == "4" && (
                         <>
                             <div style={{display:"flex", justifyContent:"center"}}>
-                                <p>How likely is Adrien to improve your mood?</p>
+                                <p>How did you feel after interacting with the demo app?</p>
                             </div>
             
                             <div style={{display:"flex", justifyContent:"space-between", margin:"30px 15px", width:"90%"}}>
@@ -310,7 +310,7 @@ const Survey = () => {
                     {currentView == "5" && (
                         <>
                             <div style={{display:"flex", justifyContent:"center"}}>
-                                <p>How likely are you to trust advice from Adrien?</p>
+                                <p>How likely are you to use this demo app on launch?</p>
                             </div>
             
                             <div style={{display:"flex", justifyContent:"space-between", margin:"30px 15px", width:"90%"}}>
