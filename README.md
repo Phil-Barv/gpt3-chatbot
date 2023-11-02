@@ -1,4 +1,4 @@
-This is a simple GPT-3 chatbot. You will need to setup an openAI account to obtain the API key that you will put in the env.local.
+This is a simple GPT-3 chatbot. You will need to setup an openAI account to obtain the API key that you will put in the env.local. You can switch out the models and use those available to you.
 
 **Update:** You might want to select more recent models to use for your chatbot as LLMs have improved quite a bit since this repo was released. 04/11/2023.
 
