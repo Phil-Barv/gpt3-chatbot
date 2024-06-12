@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   const {name} = req.body;
 
   const gptResponse = await openai.createCompletion({
-    model: "text-davinci-002",
+    model: "gpt-3.5-turbo-instruct",
     prompt: name,
     temperature: 0.7,
     max_tokens: 150,
